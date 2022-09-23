@@ -8,7 +8,6 @@ st.header('_2021 서울교통공사 지하철 월별 하차 인원_')
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
 df = pd.read_csv('streamlit//data_subway_in_seoul.csv', encoding = 'cp949')
-st.write(df)
 
 # button을 누르면 원본데이터 주소가 나타남: https://www.data.go.kr/data/15044247/fileData.do
 if st.button('data copyright link'):
