@@ -92,6 +92,7 @@ st.subheader('농가면적 잔존량 INPUT')
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
 farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', 1, 100000)
+st.write(farm_hr)
 f_remain = t_remain * farm_hr/t_hr
 st.write('농가예상잔존량:', f_remain)
 
