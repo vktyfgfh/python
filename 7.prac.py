@@ -182,9 +182,9 @@ avg
 st.write(' 떨이가격 :', avg * 8/12)
 st.write(' 농가수취가 :', avg* 0.92)
 
-# slider를 사용하여 구간 설정하기
-values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
-  st.write('Values:', values)
+# # slider를 사용하여 구간 설정하기
+# values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
+#   st.write('Values:', values)
 
 
 
