@@ -166,7 +166,7 @@ tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '�
                                             'year', 'month', '경매건수(건)', '최소가(원)',
                                             '평균가(원)', '최대가(원)', 'mass'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
-tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
+tf1 = tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
 
 # 중품    
@@ -176,7 +176,7 @@ tf2 = tf2[tf2.columns.difference(['품목명', '품종명', '등급 코드', '�
                                             'year', 'month', '경매건수(건)', '최소가(원)',
                                             '평균가(원)', '최대가(원)', 'mass'])]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
-tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
+tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
 tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
 tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
