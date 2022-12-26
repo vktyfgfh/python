@@ -14,6 +14,17 @@ last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
 st.header('🍎🍏 🍎🍎🍏🍏 🍎🍎🍎🍏🍏🍏 🍎🍎')
+with col1:
+    st.text('A cat')
+    st.image('https://static.streamlit.io/examples/cat.jpg')
+
+with col2:
+    st.text('A dog')
+    st.image('https://static.streamlit.io/examples/dog.jpg')
+
+with col3:
+    st.text('An owl')
+    st.image('https://static.streamlit.io/examples/owl.jpg')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
@@ -28,12 +39,12 @@ if st.checkbox('원본 데이터 보기'):
 if st.button('Data link'):
     st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
 
-st.subheader('사과 상·중품 비율 구하기')
+st.subheader('전체 사과의 상·중품 비율')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
-st.write('농수축산물 거래 단량 x 거래량 = mass')
-st.write(" mass열 상품 합계 + 중품 합계 / 전체 합계")
+st.write('농수축산물 거래 단량 x 거래량')
+st.write(" 상품 합계 + 중품 합계 / 전체 합계")
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
