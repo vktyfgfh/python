@@ -54,8 +54,8 @@ output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * 
 st.write('작년 경북 사과 생산량 (kg)',output)
 
 st.subheader('잔존계수 산출')
-gs = pd.read_csv('gyesoo.csv', encoding='cp949')
-jv = pd.read_csv('java.csv', encoding='cp949')
+gs = pd.read_csv('gyesoo.csv')
+jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
 
 # 재배면적에 따른 분포 시각화
