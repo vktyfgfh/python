@@ -7,7 +7,7 @@ st.header('_2021 AIVLE_DX트랙 12조 ')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
-df = pd.read_csv('streamlit//raw_price.csv', encoding='cp949')
+df = pd.read_csv('raw_price.csv', encoding='cp949')
 
 # button을 누르면 원본데이터 주소가 나타남: https://www.data.go.kr/data/15044247/fileData.do
 if st.button('data copyright link'):
