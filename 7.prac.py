@@ -14,7 +14,8 @@ last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
 st.header('🍎🍏 🍎🍎🍏🍏 🍎🍎🍎🍏🍏🍏 🍎🍎')
-
+st.write(' ')
+st.write(' ')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
@@ -65,16 +66,25 @@ with st.sidebar:
     st.header('1. Sidebar')
 
 add_selectbox = st.sidebar.selectbox(
-     '어떻게 연락 드릴까요?',
-     ('Email', 'Mobile phone', 'Office phone')
+     '조원 소개',
+     ('강하라', '서경원', '심민수', '조광현', '김정민')
 )
 
-if add_selectbox == 'Email':
+if add_selectbox == '강하라':
     st.sidebar.title('📧')
-elif add_selectbox == 'Mobile phone':
+    st.sidebar.write('엑셀 여신, 그룹내최고미녀, 오빠 차 있어? 오빠 오빠 돈 많아?, 정민담당일진', '12조왕언니')
+elif add_selectbox == '서경원':
     st.sidebar.title('📱')
+    st.sidebar.write('소통의神 , 먹잘알척척박사님, 먹선생, 개인기 본좌, 한입사냥꾼, 쩝쩝..아니척척박사, 떴다먹선생')
+elif add_selectbox == '심민수':
+    st.sidebar.title('📱')
+    st.sidebar.write('ENTJ그잡채, 케이시가 좋아..★, 위스키믈리에(비전문가), 쌍화탕이피료해..☆')
+elif add_selectbox == '조광현':
+    st.sidebar.title('📱')
+    st.sidebar.write('인심좋은배곧주인장, 하극상, 덩킨도넛터줏대감, 대한민국수도배곧으로기억할사람, 언어의마술사람, 배곧홍보대사S2')
 else:
     st.sidebar.title('☎︎')
+    st.sidebar.write('올라운더갓정민, ㄴㅇㄱ, 밈(Meme)잘알, 버스정류장절대강자, 뉴진스가너무좋은ditto좌♥')
 
 
 st.subheader('잔존계수 산출')
