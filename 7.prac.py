@@ -45,15 +45,25 @@ st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 st.write('KOSIS 경북 사과 생산량 Data')
+col1, col2, col3 = st.columns(3)
 
-# 작년 사과 총 생산량
-last_year = int(datetime.today().strftime('%Y'))-1
-output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
-st.write('작년 사과 총 생산량 ',output)
+with col1:
+    st.text('A cat')
+    st.image('https://static.streamlit.io/examples/cat.jpg')
+    # 작년 사과 총 생산량
+    last_year = int(datetime.today().strftime('%Y'))-1
+    output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
+    st.write('작년 사과 총 생산량 ',output)
+with col2:
+    st.text('A dog')
+    st.image('https://static.streamlit.io/examples/dog.jpg')
+    # 작년 경북 사과 생산량 
+    output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
+    st.write('작년 경북 사과 생산량 (kg)',output)
+with col3:
+    st.text('An owl')
+    st.image('https://static.streamlit.io/examples/owl.jpg')
 
-# 작년 경북 사과 생산량 
-output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
-st.write('작년 경북 사과 생산량 (kg)',output)
 
 st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
@@ -153,24 +163,7 @@ elif add_selectbox == 'Mobile phone':
 else:
     st.sidebar.title('☎︎')
 
-# columns  
-# https://static.streamlit.io/examples/cat.jpg
-# https://static.streamlit.io/examples/dog.jpg
-# https://static.streamlit.io/examples/owl.jpg 
-st.header('2. Columns')
-col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.text('A cat')
-    st.image('https://static.streamlit.io/examples/cat.jpg')
-
-with col2:
-    st.text('A dog')
-    st.image('https://static.streamlit.io/examples/dog.jpg')
-
-with col3:
-    st.text('An owl')
-    st.image('https://static.streamlit.io/examples/owl.jpg')
 
     
 # tabs  
