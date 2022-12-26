@@ -69,6 +69,7 @@ else:
 df = pd.read_csv('raw_price.csv', encoding='cp949')
 # price 열추가 : 10kg 단위로 맞춤
 df['price'] = round(df['평균가(원)']/df['농수축산물 거래 단량']*10)
+df['datetime'] = df['경락일'].apply(lambda x: pd.to_datetime(str(x), format='%Y-%m-%d'))
 
 col1, col2 = st.columns(2)
 
