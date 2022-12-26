@@ -158,13 +158,13 @@ st.subheader('사과 적정가격 범위구하기')
 
 # 상품
 tf1 = df[df['grade'] == '상품']
-tf1 = tf1[tf1(['datetime', 'price'])]
+tf1 = tf1[tf1['datetime', 'price']]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
 st.dataframe(tf1)
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
-tf2 = tf2[tf2(['datetime', 'price'])]
+tf2 = tf2[tf2['datetime', 'price']]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
 tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d"))
 
