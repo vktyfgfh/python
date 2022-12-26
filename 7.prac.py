@@ -87,7 +87,7 @@ remain = float(k)
 t_remain = output * remain * ratio
 st.write('경북예상잔존량:', t_remain)
 
-st.subheader('농가면적 잔존량 INPUT')
+st.subheader('농가면적 대비 잔존량')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
@@ -97,5 +97,43 @@ f_remain = t_remain * farm_hr/t_hr
 st.write('농가예상잔존량:', f_remain)
 
 st.subheader('사과 적정가격 범위구하기')
+
+# 상품
+tf1 = df[df['grade'] == '상품']
+tf1.rename(columns = {"price": "price_h"}, inplace = True)
+cols = ['품목명', '품종명', '등급 코드', '농수축산물 거래 단량', 
+        '포장단위 규격명', '포장단위 규격', '거래량', '경락일', 
+        'year', 'month', '경매건수(건)', '최소가(원)', 
+        '평균가(원)',	'최대가(원)']
+tf1.drop(cols, axis = 1, inplace = True)
+tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
+
+# 중품    
+tf2 = df[df['grade'] == '중품']
+tf2.rename(columns = {"price": "price_m"}, inplace = True)
+tf2.drop(cols, axis = 1, inplace = True)
+tf2 = round(tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean())
+
+tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
+tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
+
+#도매가 평균
+avg = (tf3['price'][-1:] + tf3['price'][-6:].mean())/2
+avg
+
+# 적정가격 범위 
+st.write(' 떨이가격 :', avg * 8/12)
+st.write(' 농가수취가 :', avg* 0.92)
+
+# slider를 사용하여 구간 설정하기
+slider_date = st.slider(
+    '가격 구간을 선택하세요 ',
+    avg * 8/12, avg* 0.92,
+    value=(avg * 8/12, avg* 0.92),
+    )
+
+# slider 날짜 구간으로 df를 읽어서 새 sel_df 으로 저장하고 확인하기
+tf4 = tf3.loc[tf3['price'].between(avg * 8/12, avg* 0.92)]
+st.dataframe(tf4)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
