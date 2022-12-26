@@ -1,5 +1,4 @@
 import streamlit as st
-import altair as alt
 import pandas as pd
 import numpy as np
 
@@ -32,7 +31,7 @@ st.subheader('사과 상·중품 비율 구하기')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
-st.write('농수축산물 거래 단량 x 거래량')
+st.write('농수축산물 거래 단량 x 거래량 = mass')
 st.write("['grade']=='상품']['mass'].sum() + ['grade']=='중품']['mass'].sum() / df['mass'].sum()")
 
 # 상중품 비율!!!
