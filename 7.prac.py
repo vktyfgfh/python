@@ -166,15 +166,17 @@ tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '�
                                             'year', 'month', '경매건수(건)', '최소가(원)',
                                             '평균가(원)', '최대가(원)', 'mass'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
-st.dataframe(tf1)
 tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
-st.dataframe(tf1)
+
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
-tf2 = tf2[['datetime', 'price']]
+tf2 = tf2[tf2.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
+                                            '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
+                                            'year', 'month', '경매건수(건)', '최소가(원)',
+                                            '평균가(원)', '최대가(원)', 'mass'])]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
-tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d"))
+tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
 
 tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
 tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
@@ -187,15 +189,8 @@ avg
 st.write(' 떨이가격 :', avg * 8/12)
 st.write(' 농가수취가 :', avg* 0.92)
 
-# # slider를 사용하여 구간 설정하기
-# values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
-#   st.write('Values:', values)
-
-
-
-
-
-    
-
+# slider를 사용하여 구간 설정하기
+values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
+st.write('Values:', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
