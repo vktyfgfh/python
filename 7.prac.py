@@ -12,22 +12,22 @@ last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
 last_month
 
-st.title('빅프로젝트_2022 AIVLE_DX트랙 12조')
+st.title('빅프로젝트_2022_AIVLE_DX_12조')
 st.header('🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
 df = pd.read_csv('raw_price.csv', encoding='cp949')
 
-# button을 누르면 원본데이터 주소가 나타남
-if st.button('Data link'):
-    st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
-
 # checkbox를 선택하면 원본 데이터프레임이 나타남
 if st.checkbox('원본 데이터 보기'):
     st.subheader('기다려주세요 (_ _)')
     st.dataframe(df)
-    
+
+# button을 누르면 원본데이터 주소가 나타남
+if st.button('Data link'):
+    st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
+
 st.subheader('사과 상중품 비율 구하기')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
@@ -36,8 +36,8 @@ df['mass'] = df['농수축산물 거래 단량']*df['거래량']
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
 st.write('상중품 비율 ',ratio)
-
-st.write('예상 잔존량 구하기')
+st.write('🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎')
+st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 
