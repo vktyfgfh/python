@@ -67,6 +67,8 @@ else:
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
 df = pd.read_csv('raw_price.csv', encoding='cp949')
+# price 열추가 : 10kg 단위로 맞춤
+df['price'] = round(df['평균가(원)']/df['농수축산물 거래 단량']*10)
 
 col1, col2 = st.columns(2)
 
