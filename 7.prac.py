@@ -21,20 +21,22 @@ df = pd.read_csv('raw_price.csv', encoding='cp949')
 
 # checkbox를 선택하면 원본 데이터프레임이 나타남
 if st.checkbox('원본 데이터 보기'):
-    st.subheader('기다려주세요 (_ _)')
+    st.subheader('2018~2022 data')
     st.dataframe(df)
 
 # button을 누르면 원본데이터 주소가 나타남
 if st.button('Data link'):
     st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
 
-st.subheader('사과 상중품 비율 구하기')
+st.subheader('사과 상·중품 비율 구하기')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
+st.write('  ')
+st.write('  ')
 st.write('상중품 비율 ',ratio)
 st.write('  ')
 st.write('  ')
