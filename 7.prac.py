@@ -103,7 +103,7 @@ st.subheader('사과 적정가격 범위구하기')
 tf1 = df[df['grade'] == '상품']
 tf1 = tf1[tf1.columns.difference(['datetime', 'price'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
-tf1 = tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d"))
+st.dataframe(tf1)
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
