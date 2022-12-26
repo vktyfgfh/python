@@ -33,7 +33,7 @@ df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
 st.write('농수축산물 거래 단량 x 거래량 = mass')
-st.write("['grade']=='상품']['mass'].sum() + ['grade']=='중품']['mass'].sum() / df['mass'].sum()")
+st.write(" mass열 상품 합계 + 중품 합계 / 전체 합계")
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
@@ -91,27 +91,24 @@ st.subheader('농가면적 대비 잔존량')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
-farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', 1, 100000)
+farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
 st.write(farm_hr)
 f_remain = t_remain * farm_hr/t_hr
+st.write('입력한 숫자입니다', farm_hr)
 st.write('농가예상잔존량:', f_remain)
 
 st.subheader('사과 적정가격 범위구하기')
 
 # 상품
 tf1 = df[df['grade'] == '상품']
+tf1 = tf1[tf1.columns.difference(['datetime', 'price'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
-cols = ['품목명', '품종명', '등급 코드', '농수축산물 거래 단량', 
-        '포장단위 규격명', '포장단위 규격', '거래량', '경락일', 
-        'year', 'month', '경매건수(건)', '최소가(원)', 
-        '평균가(원)',	'최대가(원)']
-tf1.drop(cols, axis = 1, inplace = True)
 tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
+tf2 = tf2[tf2.columns.difference(['datetime', 'price'])]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
-tf2.drop(cols, axis = 1, inplace = True)
 tf2 = round(tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean())
 
 tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
