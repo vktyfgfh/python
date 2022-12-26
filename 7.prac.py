@@ -136,7 +136,7 @@ st.altair_chart(chart, use_container_width=True)
 k = (gs['잔존율'][0] + gs['잔존율'][1] + gs['잔존율'][2] + 
      (gs['잔존율'][3]*3/4 + gs['잔존율'][4]*1/4) + 
      (gs['잔존율'][5]*3/4 + gs['잔존율'][6]*1/4))/5
-st.write('잔존계수 ',round(k)) # 잔존계수  = k
+st.write('잔존계수 ',k) # 잔존계수  = k
 
 # 작년 전체 농가 사과 예상 잔존량
 # ratio : 상중품 비율
@@ -158,13 +158,13 @@ st.subheader('사과 적정가격 범위구하기')
 
 # 상품
 tf1 = df[df['grade'] == '상품']
-tf1 = tf1[tf1.columns.difference(['datetime', 'price'])]
+tf1 = tf1[tf1(['datetime', 'price'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
 st.dataframe(tf1)
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
-tf2 = tf2[tf2.columns.difference(['datetime', 'price'])]
+tf2 = tf2[tf2(['datetime', 'price'])]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
 tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d"))
 
