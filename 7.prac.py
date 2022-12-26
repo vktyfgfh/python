@@ -57,21 +57,25 @@ with col2:
     output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
     st.write(output)
 
-# tabs  
-st.header('3. Tabs')
-tab1, tab2, tab3 = st.tabs(['고양이', '개', '부엉이'])
+st.title('Unit 5. Layouts & Containers')
+st.caption('참조사이트: https://docs.streamlit.io/library/api-reference/layout')
 
-with tab1:
-    st.caption('Cat')
-    st.image('https://static.streamlit.io/examples/cat.jpg', width=200)
+# sidebar- with 사용하기 📧  📱  ☎︎
+with st.sidebar:
+    st.header('1. Sidebar')
 
-with tab2:
-    st.caption('Dog')
-    st.image('https://static.streamlit.io/examples/dog.jpg', width=200)
+add_selectbox = st.sidebar.selectbox(
+     '어떻게 연락 드릴까요?',
+     ('Email', 'Mobile phone', 'Office phone')
+)
 
-with tab3:
-    st.caption('Owl')
-    st.image('https://static.streamlit.io/examples/owl.jpg', width=200)
+if add_selectbox == 'Email':
+    st.sidebar.title('📧')
+elif add_selectbox == 'Mobile phone':
+    st.sidebar.title('📱')
+else:
+    st.sidebar.title('☎︎')
+
 
 st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
@@ -152,24 +156,6 @@ slider_date = st.slider(
 tf4 = tf3.loc[tf3['price'].between(avg * 8/12, avg* 0.92)]
 st.dataframe(tf4)
 
-st.title('Unit 5. Layouts & Containers')
-st.caption('참조사이트: https://docs.streamlit.io/library/api-reference/layout')
-
-# sidebar- with 사용하기 📧  📱  ☎︎
-with st.sidebar:
-    st.header('1. Sidebar')
-
-add_selectbox = st.sidebar.selectbox(
-     '어떻게 연락 드릴까요?',
-     ('Email', 'Mobile phone', 'Office phone')
-)
-
-if add_selectbox == 'Email':
-    st.sidebar.title('📧')
-elif add_selectbox == 'Mobile phone':
-    st.sidebar.title('📱')
-else:
-    st.sidebar.title('☎︎')
 
 
 
