@@ -2,8 +2,8 @@ import streamlit as st
 import altair as alt
 import pandas as pd
 
-st.title('종합 실습')
-st.header('_2021 서울교통공사 지하철 월별 하차 인원_')
+st.title('빅프로젝트')
+st.header('_2021 AIVLE_DX트랙 12조 ')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
