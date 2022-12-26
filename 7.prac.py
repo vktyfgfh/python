@@ -90,7 +90,8 @@ st.write('농수축산물 거래 단량 x 거래량 > 상품 합계 + 중품 합
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
 st.write('상중품 비율 ',ratio)
 
-
+st.write(' ')
+st.write(' ')
 st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
@@ -107,13 +108,9 @@ with col2:
     st.text('작년 경북 사과 생산량 (kg)')
     output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
     st.write(output)
-
-st.title('Unit 5. Layouts & Containers')
-st.caption('참조사이트: https://docs.streamlit.io/library/api-reference/layout')
-
-
-
-
+    
+st.write(' ')
+st.write(' ')
 st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
 jv = pd.read_csv('java.csv')
