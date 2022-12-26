@@ -13,7 +13,7 @@ last_month = last_month[0:4]+last_month[5:7]
 last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
-st.header('🍎🍏 🍎🍎🍏🍏 🍎🍎🍎🍏🍏🍏 🍎🍎🍎🍎🍏🍏🍏🍏')
+st.header('🍎🍏 🍎🍎🍏🍏 🍎🍎🍎🍏🍏🍏 🍎🍎')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
