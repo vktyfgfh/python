@@ -33,7 +33,7 @@ df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
 st.write('농수축산물 거래 단량 x 거래량')
-st.write('['grade']=='상품']['mass'].sum() + ['grade']=='중품']['mass'].sum() / df['mass'].sum()')
+st.write("['grade']=='상품']['mass'].sum() + ['grade']=='중품']['mass'].sum() / df['mass'].sum()")
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
