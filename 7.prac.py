@@ -158,7 +158,10 @@ st.subheader('사과 적정가격 범위구하기')
 
 # 상품
 tf1 = df[df['grade'] == '상품']
-tf1 = tf1[['datetime', 'price']]
+tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
+                                            '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
+                                            'year', 'month', '경매건수(건)', '최소가(원)',
+                                            '평균가(원)', '최대가(원)'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
 st.dataframe(tf1)
 
@@ -180,15 +183,9 @@ st.write(' 떨이가격 :', avg * 8/12)
 st.write(' 농가수취가 :', avg* 0.92)
 
 # slider를 사용하여 구간 설정하기
-slider_date = st.slider(
-    '가격 구간을 선택하세요 ',
-    avg * 8/12, avg* 0.92,
-    value=(avg * 8/12, avg* 0.92),
-    )
+values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
+  st.write('Values:', values)
 
-# slider 날짜 구간으로 df를 읽어서 새 sel_df 으로 저장하고 확인하기
-tf4 = tf3.loc[tf3['price'].between(avg * 8/12, avg* 0.92)]
-st.dataframe(tf4)
 
 
 
