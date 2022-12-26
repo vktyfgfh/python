@@ -37,7 +37,7 @@ elif add_selectbox == '서경원':
     st.sidebar.title('🍀')
     st.sidebar.write('소통의神')
     st.sidebar.write('먹잘알척척박사님')
-    st.sidebar.write('개인기 본좌,')
+    st.sidebar.write('개인기 본좌')
     st.sidebar.write('먹선생')
     st.sidebar.write('한입사냥꾼')
     st.sidebar.write('쩝쩝..아니척척박사')
@@ -68,21 +68,23 @@ else:
 # encoding='cp949'  읽어오고 확인하기 
 df = pd.read_csv('raw_price.csv', encoding='cp949')
 
-# checkbox를 선택하면 원본 데이터프레임이 나타남
-if st.checkbox('원본 데이터 보기'):
-    st.subheader('2018~2022 data')
-    st.dataframe(df)
+col1, col2 = st.columns(2)
 
-# button을 누르면 원본데이터 주소가 나타남
-if st.button('Data link'):
-    st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
+with col1:
+    # checkbox를 선택하면 원본 데이터프레임이 나타남
+    if st.checkbox('원본 데이터 보기'):
+        st.subheader('2018~2022 data')
+        st.dataframe(df)
+with col2:
+    # button을 누르면 원본데이터 주소가 나타남
+    if st.button('Data link'):
+        st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
 
 st.subheader('전체 사과의 상·중품 비율')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
-st.write('농수축산물 거래 단량 x 거래량')
-st.write(" 상품 합계 + 중품 합계 / 전체 합계")
+st.write('농수축산물 거래 단량 x 거래량 > 상품 합계 + 중품 합계 / 전체 합계')
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
@@ -93,6 +95,7 @@ st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 st.write('KOSIS 경북 사과 생산량 Data')
+
 col1, col2 = st.columns(2)
 
 with col1:
