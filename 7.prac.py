@@ -163,8 +163,10 @@ tf1 = df[df['grade'] == '상품']
 tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
                                             '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
                                             'year', 'month', '경매건수(건)', '최소가(원)',
-                                            '평균가(원)', '최대가(원)'])]
+                                            '평균가(원)', '최대가(원)', 'mass'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
+st.dataframe(tf1)
+tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
 st.dataframe(tf1)
 
 # 중품    
