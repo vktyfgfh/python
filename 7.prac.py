@@ -12,8 +12,8 @@ last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
 last_month
 
-st.title('빅프로젝트')
-st.header('_2021 AIVLE_DX트랙 12조 ')
+st.title('빅프로젝트_2022 AIVLE_DX트랙 12조')
+st.header('🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎🍎')
 
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
@@ -37,7 +37,7 @@ df['mass'] = df['농수축산물 거래 단량']*df['거래량']
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
 st.write('상중품 비율 ',ratio)
 
-st.subheader('예상 잔존량 구하기')
+st.write('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 
