@@ -43,6 +43,7 @@ st.write('상중품 비율 ',ratio)
 st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
+st.write('KOSIS 경북 사과 생산량 Data')
 
 # 작년 사과 총 생산량
 last_year = int(datetime.today().strftime('%Y'))-1
@@ -56,7 +57,7 @@ st.write('작년 경북 사과 생산량 (kg)',output)
 st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv', encoding='cp949')
 jv = pd.read_csv('java.csv', encoding='cp949')
-st.write('KOSIS '사과 재배면적 규모별 농가 및 면적 Data')
+st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
 
 # 재배면적에 따른 분포 시각화
 # altair mark_line 차트 그리기
