@@ -183,11 +183,19 @@ tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
 
 #도매가 평균
 avg = (tf3['price'][-1:] + tf3['price'][-6:].mean())/2
-avg
 
 # 적정가격 범위 
-st.write(' 떨이가격 :', avg * 8/12)
-st.write(' 농가수취가 :', avg* 0.92)
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.text('도매가 평균')
+    avg
+with col2:
+    st.text('떨이가격')
+    st.write(avg * 8/12)
+with col3:
+    st.text('농가수취가')
+    st.write(avg* 0.92)
 
 # slider를 사용하여 구간 설정하기
 values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92, (avg-1, avg+1))
