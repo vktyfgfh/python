@@ -103,13 +103,13 @@ st.subheader('사과 적정가격 범위구하기')
 tf1 = df[df['grade'] == '상품']
 tf1 = tf1[tf1.columns.difference(['datetime', 'price'])]
 tf1.rename(columns = {"price": "price_h"}, inplace = True)
-tf1 = round(tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean())
+tf1 = tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
 # 중품    
 tf2 = df[df['grade'] == '중품']
 tf2 = tf2[tf2.columns.difference(['datetime', 'price'])]
 tf2.rename(columns = {"price": "price_m"}, inplace = True)
-tf2 = round(tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean())
+tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
 tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
 tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
