@@ -44,7 +44,7 @@ st.write('상중품 비율 ',ratio)
 
 st.write(' ')
 st.write(' ')
-st.subheader('예상 잔존량 구하기')
+st.subheader('KOSIS 생산량 ')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 st.write('출처 : KOSIS 경북 사과 생산량')
