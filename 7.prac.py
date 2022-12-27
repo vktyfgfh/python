@@ -68,7 +68,7 @@ st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
 jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
-
+jv
 # 재배면적에 따른 분포 시각화
 # altair mark_line 차트 그리기
 chart = alt.Chart(jv).mark_line().encode(
