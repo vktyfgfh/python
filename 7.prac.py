@@ -14,7 +14,6 @@ last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
 st.image('https://img.freepik.com/premium-vector/farm-panorama_273525-19.jpg?w=1380')
-st.header('🍎🍏🍎🍏🍎🍏🍎🍏🍎🍏🍎🍏')
 st.write(' ')
 st.write(' ')
 
