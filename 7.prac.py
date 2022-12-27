@@ -153,26 +153,13 @@ with col3:
     
 #slider를 사용하여 구간 설정하기
 values = st.slider(
-    'Select a range of values',
-    12369, 17069, (13369, 16069))
+    '범위로 나타낸 사과 적정가격 (빨간부분) ',
+    11000, 18000, (12369, 17069))
 st.write('Values:', values)
 
-s1 = st.slider("slider 1", min_value=0, max_value=10, value=3)
-s2 = st.slider("slider 2", min_value=1, max_value=10, value=1)
+s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
+st.write(f'예상수익 = {s1 + f_remain}')
 
-st.write(f's1 + s2 = {s1 + s2}')
-st.write(f's1 * s2 = {s1 * s2}')
 
-sidebar_expander = st.sidebar.beta_expander("Slim sliders underneath!")
-with sidebar_expander:
-   _, slider_col, _ = st.beta_columns([0.02, 0.96, 0.02])
-   with slider_col:
-        st.slider("Slimmer slider", 0, 100, value=0)
-        st.slider("Slimmer slider2", 0, 100, value=(0,100))
-
-st.sidebar.slider("Standard layout slider")
-
-income = (values[0]+vlaues[1])/2 * f_remain
-st.write('예상수익', income)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
