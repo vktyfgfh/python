@@ -170,8 +170,8 @@ tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5['price'][-6:]
 
 chart = alt.Chart(tf5).mark_line().encode(
-         x='최근 일주일', y='가격').properties(width=650, height=350)
-st.altair_chart(chart)
+         x='datetime', y='price').properties(width=650, height=350)
+st.altair_chart(chart, use_container_width=True)
 
 st.line_chart(tf5)
 st.bar_chart(tf5)
