@@ -102,7 +102,7 @@ st.subheader('농가면적 대비 잔존량')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
-farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
+farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', format = %d)
 f_remain = int(t_remain * farm_hr/t_hr)
 st.write('농가예상잔존량 (kg) :', f_remain)
 
@@ -151,12 +151,10 @@ with col3:
     st.write(int(avg* 0.92))
     
 #slider를 사용하여 구간 설정하기
-values = st.slider(
-    '범위로 나타낸 사과 적정가격 (빨간부분) ',
-    11000, 18000, (12369, 17069))
+s = st.slider('범위로 나타낸 사과 적정가격 (빨간부분) ', 11000, 18000, (12369, 17069))
+s1 = st.slider("가격을 선택하세요", min_value=12369, max_value=17069, value=14719)
 
-s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
-st.text('설정 범위의 평균가격 x 농가예상잔존량')
+st.text('범위 내 설정가격 x 농가예상잔존량')
 s2 = int(s1 * f_remain)
 st.write(f'예상수익 = {s2}')
 
@@ -170,7 +168,8 @@ st.write(f'예상수익 = {s2}')
 # tf5 = tf5.groupby(tf5['datetime'].dt.strftime("%Y-%m-%d")).mean()
 tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5[-6:]
-tf5.reset_index(inplace = True)
+
+
 chart = alt.Chart(tf5).mark_line().encode(
          x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
