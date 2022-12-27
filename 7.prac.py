@@ -13,7 +13,7 @@ last_month = last_month[0:4]+last_month[5:7]
 last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
-st.header('🍎🍏 🍎🍎🍏🍏 🍎🍎🍎🍏🍏🍏 🍎🍎')
+st.header('🍎🍏')
 st.write(' ')
 st.write(' ')
 
@@ -173,8 +173,53 @@ chart = alt.Chart(tf5).mark_line().encode(
          x='datetime', y='price').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
 
-# st.line_chart(tf5)
-# st.bar_chart(tf5)
-# st.area_chart(tf5)
+st.line_chart(tf5)
+st.bar_chart(tf5)
+st.area_chart(tf5)
 
-# 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
+# sidebar- with 사용하기
+with st.sidebar:
+    st.header('1. Sidebar')
+
+add_selectbox = st.sidebar.selectbox(
+     '조원 소개',
+     ('강하라', '서경원', '심민수', '조광현', '김정민')
+)
+
+if add_selectbox == '강하라':
+    st.sidebar.title('🧸')
+    st.sidebar.write('엑셀 여신')
+    st.sidebar.write('그룹내최고미녀')
+    st.sidebar.write('오빠 차 있어? 오빠 오빠 돈 많아?')
+    st.sidebar.write('정민담당일진')
+    st.sidebar.write('12조왕언니')
+elif add_selectbox == '서경원':
+    st.sidebar.title('🍀')
+    st.sidebar.write('소통의神')
+    st.sidebar.write('먹잘알척척박사님')
+    st.sidebar.write('개인기 본좌')
+    st.sidebar.write('먹선생')
+    st.sidebar.write('한입사냥꾼')
+    st.sidebar.write('쩝쩝..아니척척박사')
+    st.sidebar.write('떴다먹선생')
+elif add_selectbox == '심민수':
+    st.sidebar.title('📝')
+    st.sidebar.write('ENTJ그잡채')
+    st.sidebar.write('케이시가 좋아..')
+    st.sidebar.write('위스키믈리에(비전문가)')
+    st.sidebar.write('쌍화탕이피료해..☆')
+elif add_selectbox == '조광현':
+    st.sidebar.title('📱')
+    st.sidebar.write('인심좋은배곧주인장')
+    st.sidebar.write('하극상')
+    st.sidebar.write('덩킨도넛터줏대감')
+    st.sidebar.write('대한민국수도배곧으로기억할사람')
+    st.sidebar.write('언어의마술사람')
+    st.sidebar.write('배곧홍보대사S2')
+else:
+    st.sidebar.title('🎶')
+    st.sidebar.write('올라운더갓정민')
+    st.sidebar.write('ㄴㅇㄱ')
+    st.sidebar.write('밈(Meme)잘알')
+    st.sidebar.write('버스정류장절대강자')
+    st.sidebar.write('뉴진스가너무좋은ditto좌♥')
