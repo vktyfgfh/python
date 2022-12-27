@@ -13,7 +13,8 @@ last_month = last_month[0:4]+last_month[5:7]
 last_month
 
 st.title('빅프로젝트_2022_AIVLE_DX_12조')
-st.header('🍎🍏')
+st.image('https://img.freepik.com/premium-vector/farm-panorama_273525-19.jpg?w=1380')
+st.header('🍎🍏🍎🍏🍎🍏🍎🍏🍎🍏🍎🍏')
 st.write(' ')
 st.write(' ')
 
@@ -186,7 +187,6 @@ if add_selectbox == '강하라':
     st.sidebar.title('🧸')
     st.sidebar.write('엑셀 여신')
     st.sidebar.write('그룹내최고미녀')
-    st.sidebar.write('오빠 차 있어? 오빠 오빠 돈 많아?')
     st.sidebar.write('정민담당일진')
     st.sidebar.write('12조왕언니')
 elif add_selectbox == '서경원':
