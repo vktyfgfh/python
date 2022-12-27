@@ -157,6 +157,7 @@ values = st.slider(
     11000, 18000, (12369, 17069))
 
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
+st.write('설정 범위의 평균가격 x 농가예상잔존량')
 s2 = int(s1 * f_remain)
 st.write(f'예상수익 = {s2}')
 
