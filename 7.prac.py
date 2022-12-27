@@ -143,13 +143,13 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.text('떨이가격')
-    st.write(avg * 8/12)
+    st.write(int(avg * 8/12))
 with col2:
     st.text('도매가 평균')
-    avg
+    st.write(int(avg))
 with col3:
     st.text('농가수취가')
-    st.write(avg* 0.92)
+    st.write(int(avg* 0.92))
     
 #slider를 사용하여 구간 설정하기
 values = st.slider(
@@ -157,7 +157,7 @@ values = st.slider(
     11000, 18000, (12369, 17069))
 
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
-st.write('설정 범위의 평균가격 x 농가예상잔존량')
+st.text('설정 범위의 평균가격 x 농가예상잔존량')
 s2 = int(s1 * f_remain)
 st.write(f'예상수익 = {s2}')
 
@@ -171,13 +171,13 @@ st.write(f'예상수익 = {s2}')
 # tf5 = tf5.groupby(tf5['datetime'].dt.strftime("%Y-%m-%d")).mean()
 tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5[-6:]
+tf5
+# chart = alt.Chart(tf5).mark_line().encode(
+#          x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
+# st.altair_chart(chart, use_container_width=True)
 
-chart = alt.Chart(tf5).mark_line().encode(
-         x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
-st.altair_chart(chart, use_container_width=True)
-
-st.line_chart(tf5)
-st.bar_chart(tf5)
-st.area_chart(tf5)
+# st.line_chart(tf5)
+# st.bar_chart(tf5)
+# st.area_chart(tf5)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
