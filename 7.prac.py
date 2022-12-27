@@ -150,12 +150,14 @@ with col2:
 with col3:
     st.text('농가수취가')
     st.write(avg* 0.92)
-
-
+    
+mi = avg * 8/12
+ma = avg * 0.92
+    
 # slider를 사용하여 구간 설정하기
 values = st.slider(
     'Select a range of values',
-    avg * 8/12, avg* 0.92, avg)
+    mi, ma, avg)
 st.write('선택한 값 :', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
