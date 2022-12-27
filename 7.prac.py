@@ -199,7 +199,9 @@ with col3:
 
 
 # slider를 사용하여 구간 설정하기
-values = st.slider('가격을 선택하세요', avg * 8/12, avg* 0.92)
+values = st.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0))
 st.write('선택한 값 :', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
