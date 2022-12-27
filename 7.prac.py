@@ -154,7 +154,7 @@ with col3:
 # slider를 사용하여 구간 설정하기
 values = st.slider(
     'Select a range of values',
-    12369, 17069, (16, 20))
+    12369, 17069, (14000, 16000))
 st.write('Values:', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
