@@ -157,7 +157,7 @@ values = st.slider(
     12369, 17069, (13369, 16069))
 st.write('Values:', values)
 
-s1 = st.slider("slider 1", min_value=avg * 8/12, max_value=avg* 0.92, value= (min_value+max_value)/2)
+s1 = st.slider("slider 1", min_value=0, max_value=10, value=3)
 s2 = st.slider("slider 2", min_value=1, max_value=10, value=1)
 
 st.write(f's1 + s2 = {s1 + s2}')
