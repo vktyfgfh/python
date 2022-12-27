@@ -174,7 +174,7 @@ tf5 = tf5[-6:]
 tf5.T
 
 chart = alt.Chart(tf5).mark_line().encode(
-         x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
+         x='datetime', y='price').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
 
 # st.line_chart(tf5)
