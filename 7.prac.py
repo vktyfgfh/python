@@ -156,7 +156,7 @@ values = st.slider(
     11000, 18000, (12369, 17069))
 
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
-st.write(f'예상수익 = {s1 + f_remain}', format = int64)
+st.write(f'예상수익 = {s1 + f_remain}')
 
 c = alt.Chart(df).mark_circle().encode(
     x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
