@@ -95,7 +95,7 @@ st.write('잔존계수 ',k) # 잔존계수  = k
 # 작년 전체 농가 사과 예상 잔존량
 # ratio : 상중품 비율
 remain = float(k)
-t_remain = output * remain * ratio
+t_remain = int(output * remain * ratio)
 st.write('경북예상잔존량:', t_remain)
 
 st.subheader('농가면적 대비 잔존량')
