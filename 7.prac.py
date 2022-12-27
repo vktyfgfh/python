@@ -68,12 +68,13 @@ gs = pd.read_csv('gyesoo.csv')
 jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
 jv.T
+jv.describe().T
 # 재배면적에 따른 분포 시각화
 # altair mark_area 차트 그리기
 chart = alt.Chart(jv).mark_area().encode(
          x='재배면적', y='가구수').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
-
+gs.T
 st.write('시각화를 통해 대형, 중형, 소형 구분')
 st.write('L = 2ha이상의 농가, M = 1~2ha 농가, S = 1ha 미만')
 st.write('S 농가의 경우 잔존량이 거의 없고 소규모 거래이므로 가중치에서 제외')
