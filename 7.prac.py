@@ -157,6 +157,21 @@ values = st.slider(
     12369, 17069, (13369, 16069))
 st.write('Values:', values)
 
+s1 = st.slider("slider 1", min_value=avg * 8/12, max_value=avg* 0.92, value= (min_value+max_value)/2)
+s2 = st.slider("slider 2", min_value=1, max_value=10, value=1)
+
+st.write(f's1 + s2 = {s1 + s2}')
+st.write(f's1 * s2 = {s1 * s2}')
+
+sidebar_expander = st.sidebar.beta_expander("Slim sliders underneath!")
+with sidebar_expander:
+   _, slider_col, _ = st.beta_columns([0.02, 0.96, 0.02])
+   with slider_col:
+        st.slider("Slimmer slider", 0, 100, value=0)
+        st.slider("Slimmer slider2", 0, 100, value=(0,100))
+
+st.sidebar.slider("Standard layout slider")
+
 income = (values[0]+vlaues[1])/2 * f_remain
 st.write('예상수익', income)
 
