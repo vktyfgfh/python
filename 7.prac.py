@@ -154,10 +154,10 @@ with col3:
 #slider를 사용하여 구간 설정하기
 values = st.slider(
     'Select a range of values',
-    12369, 17069, (13369, 17069))
+    12369, 17069, (13369, 16069))
 st.write('Values:', values)
 
-income = values * f_remain
+income = (values[0]+vlaues[1])/2 * f_remain
 st.write('예상수익', income)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
