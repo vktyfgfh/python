@@ -158,7 +158,7 @@ values = st.slider(
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
 st.write(f'예상수익 = {s1 * f_remain}')
 
-tf5 = tf5[tf5.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
+tf5 = df[df.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
                                             '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
                                             'year', 'month', '경매건수(건)', '최소가(원)',
                                             '평균가(원)', '최대가(원)', 'mass'])]
