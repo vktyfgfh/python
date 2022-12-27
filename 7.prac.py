@@ -104,7 +104,6 @@ t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
 farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
 st.write(farm_hr)
 f_remain = t_remain * farm_hr/t_hr
-st.write('입력한 숫자입니다', farm_hr)
 st.write('농가예상잔존량 (kg) :', f_remain)
 
 st.subheader('사과 적정가격 범위')
@@ -155,11 +154,14 @@ with col3:
 values = st.slider(
     '범위로 나타낸 사과 적정가격 (빨간부분) ',
     11000, 18000, (12369, 17069))
-st.write('Values:', values)
 
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
-st.write(f'예상수익 = {s1 + f_remain}')
+st.write(f'예상수익 = {s1 + f_remain}', format = int64)
 
+c = alt.Chart(df).mark_circle().encode(
+    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
+
+st.write(c)
 
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
