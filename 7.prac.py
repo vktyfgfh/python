@@ -158,9 +158,7 @@ values = st.slider(
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
 st.write(f'예상수익 = {s1 + f_remain}')
 
-c = alt.Chart(df).mark_circle().encode(
-    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
-
+c = alt.Chart(df).mark_circle()
 st.write(c)
 
 
