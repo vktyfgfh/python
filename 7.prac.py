@@ -159,7 +159,7 @@ s1 = st.slider("가격을 선택하세요", min_value=12369, max_value=17069, va
 
 st.text('범위 내 설정가격 x 농가예상잔존량')
 s2 = int(s1 * f_remain)
-st.write(f'예상수익 = {s2}')
+st.write(f'예상수익 = {s2}￦')
 
 
 # df['price'] = round(df['평균가(원)']/df['농수축산물 거래 단량']*10)
@@ -171,7 +171,7 @@ st.write(f'예상수익 = {s2}')
 # tf5 = tf5.groupby(tf5['datetime'].dt.strftime("%Y-%m-%d")).mean()
 tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5[-6:]
-
+tf5.T
 
 chart = alt.Chart(tf5).mark_line().encode(
          x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
