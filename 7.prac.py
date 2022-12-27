@@ -158,8 +158,8 @@ values = st.slider(
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
 st.write(f'예상수익 = {s1 + f_remain}')
 
-c = alt.Chart(df).mark_circle()
-st.write(c)
-
+st.line_chart(df)
+st.bar_chart(df)
+st.area_chart(df)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
