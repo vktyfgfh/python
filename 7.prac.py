@@ -156,14 +156,15 @@ values = st.slider(
     11000, 18000, (12369, 17069))
 
 s1 = st.slider("slider 1", min_value=12369, max_value=17069, value=14719)
-st.write(f'예상수익 = {s1 + f_remain}')
+st.write(f'예상수익 = {s1 * f_remain}')
 
 tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
                                             '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
                                             'year', 'month', '경매건수(건)', '최소가(원)',
                                             '평균가(원)', '최대가(원)', 'mass'])]
-st.line_chart(tf1)
-st.bar_chart(tf1)
-st.area_chart(tf1)
+tf1
+# st.line_chart(tf1)
+# st.bar_chart(tf1)
+# st.area_chart(tf1)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
