@@ -168,12 +168,14 @@ st.write(f'예상수익 = {s1 * f_remain}')
 # tf5 = tf5.groupby(tf5['datetime'].dt.strftime("%Y-%m-%d")).mean()
 tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5['price'][-6:]
-chart = alt.Chart(tf5).mark_line().encode(
-         x='최근 일주일', y='가격').properties(width=650, height=350)
-st.altair_chart(chart, use_container_width=True)
 
-st.line_chart(tf5)
-st.bar_chart(tf5)
-st.area_chart(tf5)
+tf5
+# chart = alt.Chart(tf5).mark_line().encode(
+#          x='최근 일주일', y='가격').properties(width=650, height=350)
+# st.altair_chart(chart, use_container_width=True)
+
+# st.line_chart(tf5)
+# st.bar_chart(tf5)
+# st.area_chart(tf5)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
