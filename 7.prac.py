@@ -31,8 +31,6 @@ with col2:
     # button을 누르면 원본데이터 주소가 나타남
     if st.button('데이터 링크'):
         st.write('https://data.mafra.go.kr/opendata/data/indexOpenDataDetail.do?data_id=20141216000000000367')
-    else:
-        st.write('없애기')
 
 st.subheader('전체 사과의 상·중품 비율')
 df = df.astype({'경락일':'str'})
