@@ -110,7 +110,7 @@ f_remain = t_remain * farm_hr/t_hr
 st.write('입력한 숫자입니다', farm_hr)
 st.write('농가예상잔존량:', f_remain)
 
-st.subheader('사과 적정가격 범위구하기')
+st.subheader('사과 적정가격 범위')
 
 # 상품
 tf1 = df[df['grade'] == '상품']
