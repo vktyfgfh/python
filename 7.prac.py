@@ -68,7 +68,7 @@ st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
 jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
-jv
+jv.T
 # 재배면적에 따른 분포 시각화
 # altair mark_line 차트 그리기
 chart = alt.Chart(jv).mark_line().encode(
@@ -104,7 +104,7 @@ t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
 farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
 st.write(farm_hr)
 f_remain = t_remain * farm_hr/t_hr
-st.write('농가예상잔존량 (kg) :', farm_hr)
+st.write('농가예상잔존량 (kg) :', farm_hr * t_remain)
 
 st.subheader('사과 적정가격 범위')
 
