@@ -37,7 +37,7 @@ st.subheader('전체 사과의 상·중품 비율')
 df = df.astype({'경락일':'str'})
 df = df[df['경락일'].str.contains(last_month, na = False)]
 df['mass'] = df['농수축산물 거래 단량']*df['거래량']
-st.write('농수축산물 거래 단량 x 거래량 > 상품 합계 + 중품 합계 / 전체 합계')
+st.text('((거래단량 x 거래량)상품 합계 + (거래단량 x 거래량)중품 합계 )/ 전체합계')
 
 # 상중품 비율!!!
 ratio = (df[df['grade']=='상품']['mass'].sum() + df[df['grade']=='중품']['mass'].sum()) / df['mass'].sum()
@@ -48,7 +48,7 @@ st.write(' ')
 st.subheader('예상 잔존량 구하기')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
-st.write('KOSIS 경북 사과 생산량 Data')
+st.write('출처 : KOSIS 경북 사과 생산량')
 
 col1, col2 = st.columns(2)
 
@@ -56,7 +56,7 @@ with col1:
     st.text('작년 사과 총 생산량')
     last_year = int(datetime.today().strftime('%Y'))-1
     output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
-    st.write(output)
+    st.write(int(output*1000))
 with col2:
     st.text('작년 경북 사과 생산량 (kg)')
     output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
