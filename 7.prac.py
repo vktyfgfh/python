@@ -154,7 +154,7 @@ s1 = st.slider("가격을 선택하세요", min_value=12369, max_value=17069, va
 
 st.text('범위 내 설정가격 x 농가예상잔존량')
 s2 = int(s1 * f_remain)
-st.write(f'예상수익 = {s2}￦')
+st.write('예상수익 =',s2, '￦')
 
 
 # df['price'] = round(df['평균가(원)']/df['농수축산물 거래 단량']*10)
