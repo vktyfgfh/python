@@ -20,9 +20,6 @@ st.write(' ')
 # streamlit//data_subway_in_seoul.csv
 # encoding='cp949'  읽어오고 확인하기 
 df = pd.read_csv('raw_price.csv', encoding='cp949')
-# price 열추가 : 10kg 단위로 맞춤
-df['price'] = round(df['평균가(원)']/df['농수축산물 거래 단량']*10)
-df['datetime'] = df['경락일'].apply(lambda x: pd.to_datetime(str(x), format='%Y-%m-%d'))
 
 col1, col2 = st.columns(2)
 
@@ -155,10 +152,10 @@ with col3:
     st.write(avg* 0.92)
 
 
-# # slider를 사용하여 구간 설정하기
-# values = st.slider(
-#     'Select a range of values',
-#     0.0, 100.0, (25.0, 75.0))
-# st.write('선택한 값 :', values)
+# slider를 사용하여 구간 설정하기
+values = st.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0))
+st.write('선택한 값 :', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
