@@ -71,14 +71,12 @@ jv.T
 jv.describe().T
 # 재배면적에 따른 분포 시각화
 # altair mark_area 차트 그리기
-chart = alt.Chart(jv).mark_area().encode(
+chart = alt.Chart(jv).mark_line().encode(
          x='재배면적', y='가구수').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
 gs.T
-st.write('시각화를 통해 대형, 중형, 소형 구분')
-st.write('L = 2ha이상의 농가, M = 1~2ha 농가, S = 1ha 미만')
-st.write('S 농가의 경우 잔존량이 거의 없고 소규모 거래이므로 가중치에서 제외')
-st.write('M, L은 농가별 계수의 평균치')
+st.write('시각화를 통해 대형, 중형, 소형 구분, (L = 2ha이상의 농가, M = 1~2ha 농가, S = 1ha 미만)')
+st.write('S 농가의 경우 잔존량이 거의 없고 소규모 거래이므로 가중치에서 제외, M, L은 농가별 계수의 평균치')
 
 st.write('L : M = 1 : 3이므로 가중치를 1/4, 3/4로 두어 평균치 계산')
 k = (gs['잔존율'][0] + gs['잔존율'][1] + gs['잔존율'][2] + 
