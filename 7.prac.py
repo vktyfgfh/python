@@ -188,20 +188,18 @@ avg = (tf3['price'][-1:] + tf3['price'][-6:].mean())/2
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.text('도매가 평균')
-    avg
-with col2:
     st.text('떨이가격')
     st.write(avg * 8/12)
+with col2:
+    st.text('도매가 평균')
+    avg
 with col3:
     st.text('농가수취가')
     st.write(avg* 0.92)
 
-min = avg * 8/12
-max = avg* 0.92
 
 # slider를 사용하여 구간 설정하기
-values = st.slider('가격을 선택하세요', min, max, (avg-1, avg+1))
+values = st.slider('가격을 선택하세요', min, max, avg, 5)
 st.write('Values:', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
