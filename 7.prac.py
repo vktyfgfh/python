@@ -171,10 +171,10 @@ st.write(f'예상수익 = {s2}')
 # tf5 = tf5.groupby(tf5['datetime'].dt.strftime("%Y-%m-%d")).mean()
 tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5[-6:]
-tf5
-# chart = alt.Chart(tf5).mark_line().encode(
-#          x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
-# st.altair_chart(chart, use_container_width=True)
+tf5.reset_index(inplace = True)
+chart = alt.Chart(tf5).mark_line().encode(
+         x='전 일주일 가격평균 ', y='price').properties(width=650, height=350)
+st.altair_chart(chart, use_container_width=True)
 
 # st.line_chart(tf5)
 # st.bar_chart(tf5)
