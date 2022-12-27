@@ -112,29 +112,31 @@ st.write('농가예상잔존량:', f_remain)
 
 st.subheader('사과 적정가격 범위')
 
-# 상품
-tf1 = df[df['grade'] == '상품']
-tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
-                                            '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
-                                            'year', 'month', '경매건수(건)', '최소가(원)',
-                                            '평균가(원)', '최대가(원)', 'mass'])]
-tf1.rename(columns = {"price": "price_h"}, inplace = True)
-tf1 = tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean()
+# # 상품
+# tf1 = df[df['grade'] == '상품']
+# tf1 = tf1[tf1.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
+#                                             '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
+#                                             'year', 'month', '경매건수(건)', '최소가(원)',
+#                                             '평균가(원)', '최대가(원)', 'mass'])]
+# tf1.rename(columns = {"price": "price_h"}, inplace = True)
+# tf1 = tf1.groupby(tf1['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
 
-# 중품    
-tf2 = df[df['grade'] == '중품']
-tf2 = tf2[tf2.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
-                                            '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
-                                            'year', 'month', '경매건수(건)', '최소가(원)',
-                                            '평균가(원)', '최대가(원)', 'mass'])]
-tf2.rename(columns = {"price": "price_m"}, inplace = True)
-tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean()
+# # 중품    
+# tf2 = df[df['grade'] == '중품']
+# tf2 = tf2[tf2.columns.difference(['품목명', '품종명', '등급 코드', '농수축산물 거래 단량',
+#                                             '포장단위 규격명', '포장단위 규격', '거래량', '경락일',
+#                                             'year', 'month', '경매건수(건)', '최소가(원)',
+#                                             '평균가(원)', '최대가(원)', 'mass'])]
+# tf2.rename(columns = {"price": "price_m"}, inplace = True)
+# tf2 = tf2.groupby(tf2['datetime'].dt.strftime("%Y-%m-%d")).mean()
 
-tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
-tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
-# csv 파일로 저장
-price.to_csv("t3.csv",encoding='cp949', mode='w', index = False )
+# tf3 = pd.merge(tf1, tf2, how = 'left',on='datetime')
+# tf3['price'] = (tf3['price_h'] + tf3['price_m'])/2
+
+# # csv 파일로 저장
+# tf3.to_csv("tf3.csv",encoding='cp949', mode='w', index = False )
+tf3 = pd.read_csv('tf3.csv', encoding='cp949')
 
 #도매가 평균
 avg = (tf3['price'][-1:] + tf3['price'][-6:].mean())/2
