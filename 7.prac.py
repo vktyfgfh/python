@@ -63,7 +63,6 @@ with col2:
     st.write(output)
     
 st.write(' ')
-st.write(' ')
 st.subheader('잔존계수 산출')
 gs = pd.read_csv('gyesoo.csv')
 jv = pd.read_csv('java.csv')
@@ -98,6 +97,8 @@ remain = float(k)
 t_remain = int(output * remain * ratio)
 st.write('경북예상잔존량:', t_remain)
 
+st.write(' ')
+st.write(' ')
 st.subheader('농가면적 대비 잔존량')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
@@ -106,6 +107,8 @@ farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', st
 f_remain = int(t_remain * farm_hr/t_hr)
 st.write('농가예상잔존량 (kg) :', f_remain)
 
+st.write(' ')
+st.write(' ')
 st.subheader('사과 적정가격 범위')
 
 # # 상품
