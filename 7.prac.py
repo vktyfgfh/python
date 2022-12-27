@@ -157,7 +157,7 @@ values = st.slider(
     12369, 17069, (13369, 17069))
 st.write('Values:', values)
 
-farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
-st.write('입력한 숫자입니다', farm_hr)
+income = values * f_remain
+st.write('예상수익', income)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
