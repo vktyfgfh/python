@@ -173,9 +173,12 @@ chart = alt.Chart(tf5).mark_line().encode(
          x='datetime', y='price').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
 
-st.line_chart(chart, use_container_width=True)
-st.bar_chart(chart, use_container_width=True)
-st.area_chart(chart, use_container_width=True)
+st.line_chart(tf5, use_container_width=True).encode(
+         x='datetime', y='price')
+st.bar_chart(tf5, use_container_width=True).encode(
+         x='datetime', y='price')
+st.area_chart(tf5, use_container_width=True).encode(
+         x='datetime', y='price')
 
 # sidebar- with 사용하기
 with st.sidebar:
