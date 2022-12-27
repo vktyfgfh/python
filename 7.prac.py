@@ -75,8 +75,8 @@ chart = alt.Chart(jv).mark_line().encode(
          x='재배면적', y='가구수').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
 gs.T
-st.write('시각화를 통해 대형, 중형, 소형 구분, (L = 2ha이상, M = 1~2ha, S = 1ha)')
-st.write('S 농가의 경우 잔존량이 거의 없고 소규모 거래이므로 가중치에서 제외, M, L은 농가별 계수의 평균치')
+st.write('시각화를 통해 대형, 중형, 소형 구분, (L = 2ha 이상, M = 1~2ha, S = 1ha 미만)')
+st.write('S 농가의 경우 잔존량이 거의 없고 소규모 거래이므로 가중치에서 제외, M, L은 농가별 계수의 평균치를 둠')
 st.write('L : M = 1 : 3이므로 가중치를 1/4, 3/4로 두어 평균치 계산')
 k = (gs['잔존율'][0] + gs['잔존율'][1] + gs['잔존율'][2] + 
      (gs['잔존율'][3]*3/4 + gs['잔존율'][4]*1/4) + 
