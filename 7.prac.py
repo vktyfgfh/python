@@ -102,7 +102,7 @@ st.subheader('농가면적 대비 잔존량')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
-farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', format = %d)
+farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', step = 1)
 f_remain = int(t_remain * farm_hr/t_hr)
 st.write('농가예상잔존량 (kg) :', f_remain)
 
