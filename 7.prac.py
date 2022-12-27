@@ -69,11 +69,6 @@ jv = pd.read_csv('java.csv')
 st.write('KOSIS 사과 재배면적 규모별 농가 및 면적 Data')
 jv.T
 # 재배면적에 따른 분포 시각화
-# altair mark_line 차트 그리기
-chart = alt.Chart(jv).mark_line().encode(
-         x='재배면적', y='가구수').properties(width=650, height=350)
-st.altair_chart(chart, use_container_width=True)
-
 # altair mark_area 차트 그리기
 chart = alt.Chart(jv).mark_area().encode(
          x='재배면적', y='가구수').properties(width=650, height=350)
@@ -173,6 +168,7 @@ tf5 = pd.read_csv('tf5.csv', encoding='cp949')
 tf5 = tf5[-6:]
 tf5.T
 
+# altair mark_line 차트 그리기
 chart = alt.Chart(tf5).mark_line().encode(
          x='datetime', y='price').properties(width=650, height=350)
 st.altair_chart(chart, use_container_width=True)
