@@ -105,7 +105,7 @@ farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)')
 st.write(farm_hr)
 f_remain = t_remain * farm_hr/t_hr
 st.write('입력한 숫자입니다', farm_hr)
-st.write('농가예상잔존량:', f_remain)
+st.write('농가예상잔존량 (kg) :', f_remain)
 
 st.subheader('사과 적정가격 범위')
 
@@ -154,7 +154,7 @@ with col3:
 # slider를 사용하여 구간 설정하기
 values = st.slider(
     'Select a range of values',
-    12369.159365655083, 17069.439924604016, (16, 20))
+    12369, 17069, (16, 20))
 st.write('Values:', values)
 
 # 파일실행: File > New > Terminal(anaconda prompt) - streamlit run streamlit\7.prac_ans.py
