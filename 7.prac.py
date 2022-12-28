@@ -91,7 +91,7 @@ st.write('경북예상잔존량:', t_remain)
 st.write(' ')
 st.write(' ')
 st.subheader('농가면적 대비 잔존량')
-st.text('최대판매 가능량 ')
+st.text('경북사과잔존량 ')
 # 특정 농가 예상 잔존량 구하기!!!
 # 경상북도 시과 전체 농지
 t_hr = df_output[df_output['경상북도']==last_year]['사과면적 (ha)']*100
@@ -152,6 +152,7 @@ s1 = st.slider("희망 판매 가격을 선택하세요", min_value=12369, max_v
 
 st.write(' ')
 st.write(' ')
+st.subheader('최대 판매 가능량')
 st.write('최대 판매 가능량은 :', f_remain, '(kg) 입니다')
 s_vol = st.number_input('희망판매량을 입력하시기 바랍니다.(kg)', step = 1, max_value = f_remain)
 
