@@ -149,31 +149,19 @@ with col3:
     
 #slider를 사용하여 구간 설정하기
 s = st.slider('제안하는 사과 적정가격 범위 ', 11000, 18000, (12369, 17069))
-
 s1 = st.slider("희망 판매 가격을 선택하세요", min_value=12369, max_value=17069, value=14719)
 
-Slider_Cursor = st.markdown(''' <style> div.stSlider > div[data-baseweb="slider"] > div > div > div[role="slider"]{
-    background-color: rgb(14, 38, 74); box-shadow: rgb(14 38 74 / 20%) 0px 0px 0px 0.2rem;} </style>''', unsafe_allow_html = True)
-
-col = f''' <style> div.stSlider > div[data-baseweb = "slider"] > div > div {{
-    background: linear-gradient(to right, rgb(1, 183, 158) 0%, 
-                                rgb(1, 183, 158) {NB}%, 
-                                rgba(151, 166, 195, 0.25) {NB}%, 
-                                rgba(151, 166, 195, 0.25) 100%); }} </style>'''
-
-ColorSlider = st.markdown(col, unsafe_allow_html = True)
 
 st.write(' ')
 st.write(' ')
-st.subheader('농가면적 대비 잔존량')
-farm_hr = st.number_input('농가면적을 입력하시기 바랍니다.(a)', step = 1)
-st.write('농가예상잔존량 (kg) :', f_remain)
+st.write('최대 판매량은 :', f_remain, '(kg) 입니다')
+s_vol = st.number_input('희망판매량을 입력하시기 바랍니다.(a)', step = 1, max_value = f_remain)
 
 st.write(' ')
 st.write(' ')
 st.subheader('농가 예상수익')
 st.text('범위 내 설정가격 x 농가예상잔존량')
-s2 = int(s1 * f_remain)
+s2 = int(s1 * s_vol)
 st.write('예상수익 =',s2, '￦')
 
 
