@@ -155,7 +155,7 @@ s1 = st.slider("희망 판매 가격을 선택하세요", min_value=12369, max_v
 st.write(' ')
 st.write(' ')
 st.write('최대 판매 가능량은 :', f_remain, '(kg) 입니다')
-s_vol = st.number_input('희망판매량을 입력하시기 바랍니다.(a)', step = 1, max_value = f_remain)
+s_vol = st.number_input('희망판매량을 입력하시기 바랍니다.(kg)', step = 1, max_value = f_remain)
 
 st.write(' ')
 st.write(' ')
