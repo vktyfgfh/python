@@ -7,7 +7,7 @@ from datetime import datetime
 from dateutil.relativedelta import *
 
 now = datetime.now().date()
-now
+print(now)
 last_month = now+relativedelta(months=-1)
 last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
