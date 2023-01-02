@@ -7,7 +7,6 @@ from datetime import datetime
 from dateutil.relativedelta import *
 
 now = datetime.now().date()
-print(now)
 last_month = now+relativedelta(months=-1)
 last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
@@ -49,8 +48,9 @@ st.subheader('사과 생산량 데이터 ')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 st.write('출처 : KOSIS 경북 사과 생산량')
-last_year = int(datetime.today().strftime('%Y'))-1
-last_year
+
+# last_year = int(datetime.today().strftime('%Y'))-1
+last_year = 2021
 
 col1, col2 = st.columns(2)
 
