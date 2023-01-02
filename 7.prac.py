@@ -48,12 +48,14 @@ st.subheader('사과 생산량 데이터 ')
 # 경북 사과 생산량 데이터 가져오기
 df_output = pd.read_csv('Gyeongbuk total output.csv', encoding='cp949')
 st.write('출처 : KOSIS 경북 사과 생산량')
-df_output
+last_year = int(datetime.today().strftime('%Y'))-1
+last_year
+
 col1, col2 = st.columns(2)
 
 with col1:
     st.text('작년 사과 총 생산량')
-    last_year = int(datetime.today().strftime('%Y'))-1
+    
     output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
     st.write(output*1000)
 with col2:
