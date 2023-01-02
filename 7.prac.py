@@ -55,7 +55,7 @@ with col1:
     st.text('작년 사과 총 생산량')
     last_year = int(datetime.today().strftime('%Y'))-1
     output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
-    st.write(int(output*1000))
+    st.write(int(output)*1000)
 with col2:
     st.text('작년 경북 사과 생산량 (kg)')
     output = df_output[df_output['경상북도']==last_year]['사과면적 (ha)'] * df_output[df_output['경상북도']==last_year]['10a당 생산량 (kg)'] * 10
