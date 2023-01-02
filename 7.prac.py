@@ -7,6 +7,7 @@ from datetime import datetime
 from dateutil.relativedelta import *
 
 now = datetime.now().date()
+now
 last_month = now+relativedelta(months=-1)
 last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
@@ -55,7 +56,6 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.text('작년 사과 총 생산량')
-    
     output = df_output[df_output['경상북도']== last_year]['생산량 (톤)']
     st.write(output*1000)
 with col2:
