@@ -187,7 +187,7 @@ st.altair_chart(chart, use_container_width=True)
 
 # sidebar- with 사용하기
 with st.sidebar:
-    st.header('1. Sidebar')
+    st.header('[AIVLE_]')
 
 add_selectbox = st.sidebar.selectbox(
      '조원 소개',
@@ -218,7 +218,6 @@ elif add_selectbox == '심민수':
 elif add_selectbox == '조광현':
     st.sidebar.title('📱')
     st.sidebar.write('인심좋은배곧주인장')
-    st.sidebar.write('하극상')
     st.sidebar.write('덩킨도넛터줏대감')
     st.sidebar.write('대한민국수도배곧으로기억할사람')
     st.sidebar.write('언어의마술사람')
