@@ -12,7 +12,7 @@ last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
 
 st.title('빅프로젝트_2022_DX_12조 🍎')
-st.write('커넥트팜/닿음')
+st.write('커넥트팜_닿음')
 st.image('https://img.freepik.com/premium-vector/farm-panorama_273525-19.jpg?w=1380')
 st.write(' ')
 st.write(' ')
