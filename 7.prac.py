@@ -11,8 +11,9 @@ last_month = now+relativedelta(months=-1)
 last_month = last_month.isoformat()
 last_month = last_month[0:4]+last_month[5:7]
 
-st.title('커넥트팜_팀_닿음')
-st.text('빅프로젝트_2022_DX_12조 🍎')
+st.title('빅프로젝트_2022_DX_12조 🍎')
+st.write('커넥트팜_')
+st.text('팀_닿음')
 st.image('https://img.freepik.com/premium-vector/farm-panorama_273525-19.jpg?w=1380')
 st.write(' ')
 st.write(' ')
